@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect, memo } from "react";
 import { useDispatch } from "react-redux";
 import { deleteTask, updateTask } from "../../store/task/taskActions";
 
@@ -7,6 +7,8 @@ function Task({ task }) {
   const [editTaskInput, setEditTaskInput] = useState("");
   const [isCompleted, setIsCompleted] = useState(task.completed);
 
+  const editRef = useRef();
+
   const dispatch = useDispatch();
 
   const handleOKButton = (task) => {
@@ -14,10 +16,16 @@ function Task({ task }) {
     dispatch(updateTask({ ...task, description: editTaskInput }));
   };
 
+  //It turns task into completed when click on it
   const handleCompletedOnClick = () => {
     dispatch(updateTask({ ...task, completed: !isCompleted }));
     setIsCompleted(!isCompleted);
   };
+
+  //Focus when push the Edit button
+  useEffect(() => {
+    editRef.current?.focus();
+  }, [taskItemType]);
 
   return (
     <li className="task-item">
@@ -25,7 +33,11 @@ function Task({ task }) {
         {taskItemType === "text" ? (
           <span onClick={() => handleCompletedOnClick()}>{task.description}</span>
         ) : (
-          <input defaultValue={task.description} onChange={(e) => setEditTaskInput(e.target.value)}></input>
+          <input
+            ref={editRef}
+            defaultValue={task.description}
+            onChange={(e) => setEditTaskInput(e.target.value)}
+          ></input>
         )}
       </div>
       <div className="task-options">
@@ -47,4 +59,4 @@ function Task({ task }) {
   );
 }
 
-export default Task;
+export default memo(Task);

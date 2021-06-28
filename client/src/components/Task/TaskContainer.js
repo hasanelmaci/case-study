@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import TaskList from "./TaskList";
 import TaskInput from "./TaskInput";
 import TaskFilter from "./TaskFilter";
@@ -16,4 +16,4 @@ function TaskContainer() {
   );
 }
 
-export default TaskContainer;
+export default memo(TaskContainer);

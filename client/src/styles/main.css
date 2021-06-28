@@ -142,7 +142,7 @@ button {
   background-color: #b85b10;
 }
 
-#task-input {
+#task-input form {
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
@@ -185,5 +185,5 @@ button {
 .completed {
   text-decoration-line: line-through;
   font-style: italic;
-  color: brown;
+  color: gray;
 }

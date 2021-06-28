@@ -1,7 +1,6 @@
-import {all} from 'redux-saga/effects'
-import taskSaga from './task/taskSaga'
+import { all } from "redux-saga/effects";
+import taskSaga from "./task/taskSaga";
 
-
-export default function* (){
-    yield all([taskSaga()])
+export default function* () {
+  yield all([taskSaga()]);
 }

@@ -1,5 +1,3 @@
-import React from "react";
-
 function TaskFilter({ setFilter, filter }) {
   return (
     <div className="task-filter">
