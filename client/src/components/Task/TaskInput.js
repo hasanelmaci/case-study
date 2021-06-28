@@ -7,8 +7,8 @@ function TaskInput() {
     const [input, setInput] = useState("")
 
     return (
-        <div>
-            <input onChange={(e)=> setInput(e.target.value)} /> <button onClick={()=>dispatch(addTask({description:input}))}>Add</button>
+        <div id='task-input'>
+            <input onChange={(e)=> setInput(e.target.value)} placeholder='Add Task'/> <button onClick={()=>dispatch(addTask({description:input}))}>+</button>
         </div>
     )
 }

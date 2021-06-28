@@ -11,7 +11,7 @@ function TaskList({ filter }) {
   }, []);
 
   return (
-    <div>
+    <div className='task-list'>
       <ul>
         {filter == "All" && tasks.map((task) => <Task key={task._id} task={task} />)}
         {filter === "Active" && tasks.map((task) => !task.completed && <Task key={task._id} task={task} />)}
