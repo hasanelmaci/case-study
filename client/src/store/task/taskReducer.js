@@ -48,7 +48,6 @@ export default(state = initialState, action) => {
                 isLoading:false
             }
         case UPDATE_TASK:
-            console.log('action')
             return{
                 ...state,
                 isLoading:true,

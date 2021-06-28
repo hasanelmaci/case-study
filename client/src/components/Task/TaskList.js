@@ -3,10 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTasks } from "../../store/task/taskActions";
 import Task from "./Task";
 
-function TaskList() {
+function TaskList({ filter }) {
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.tasks.tasks);
-  console.log(tasks);
   useEffect(() => {
     dispatch(getTasks());
   }, []);
@@ -14,9 +13,9 @@ function TaskList() {
   return (
     <div>
       <ul>
-        {tasks?.map((task) => (
-          <Task key={task._id} task={task} />
-        ))}
+        {filter == "All" && tasks.map((task) => <Task key={task._id} task={task} />)}
+        {filter === "Active" && tasks.map((task) => !task.completed && <Task key={task._id} task={task} />)}
+        {filter === "Completed" && tasks.map((task) => task.completed && <Task key={task._id} task={task} />)}
       </ul>
     </div>
   );

@@ -11,14 +11,21 @@ function Task({ task }) {
 
   const handleOKButton = (task) => {
     setTaskItemType("text");
-    dispatch(updateTask({ ...task, description: editTaskInput }));
+    dispatch(updateTask({ ...task, description: editTaskInput}));
   };
+
+  const handleCompletedOnClick = () =>{
+    dispatch(updateTask({ ...task, completed: !isCompleted}));
+    setIsCompleted(!isCompleted)
+  }
 
   return (
     <li>
       <div>
         {taskItemType === "text" ? (
-          <span onClick={() => setIsCompleted(!isCompleted)}>{task.description} {isCompleted ? 'completed' : 'not completed'} </span>
+          <span onClick={() => handleCompletedOnClick() }>
+            {task.description} {isCompleted ? "completed" : "not completed"}{" "}
+          </span>
         ) : (
           <input defaultValue={task.description} onChange={(e) => setEditTaskInput(e.target.value)}></input>
         )}

@@ -4,14 +4,7 @@ import {addTask} from '../../store/task/taskActions'
 
 function TaskInput() {
     const dispatch = useDispatch();
-
-    const tasks = useSelector((state) => state.tasks.tasks);
     const [input, setInput] = useState("")
-
-    const handleInput = () =>{
-        
-        console.log(input)
-    }
 
     return (
         <div>

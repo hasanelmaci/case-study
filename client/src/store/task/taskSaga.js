@@ -1,5 +1,5 @@
 import { takeEvery, all, call, put, takeLeading } from "redux-saga/effects";
-import { getTasks, addTask, deleteTask,updateTask } from "../../utils/api";
+import { getTasks, addTask, deleteTask, updateTask } from "../../utils/api";
 import { GET_TASKS, ADD_TASK, DELETE_TASK, UPDATE_TASK } from "./taskTypes";
 import {
   getTasksSuccess,
@@ -56,11 +56,10 @@ function* deleteTaskSaga(action) {
 }
 
 function* updateTaskSaga(action) {
-    console.log(action)
   try {
-    const data = yield call(updateTask,action.payload);
+    const data = yield call(updateTask, action.payload);
     yield put(updateTaskSuccess(data));
-} catch (error) {
+  } catch (error) {
     yield put(updateTaskFailed(error));
   }
 }
