@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import "./App.css";
 import store from "./store/index";
 import { getTasks, addTask } from "./store/task/taskActions";
+import TaskContainer from './components/Task/TaskContainer';
 
 function App() {
   const dispatch = useDispatch();
@@ -12,11 +13,10 @@ function App() {
 
   const [description, setDescription] = useState("");
 
-  console.log(tasks);
 
   return (
     <div className="App">
-      <button
+      {/* <button
         onClick={() => {
           dispatch(getTasks());
         }}
@@ -37,7 +37,10 @@ function App() {
         <div>
           <input defaultValue={item.description}></input> <button>Edit</button>
         </div>
-      ))}
+      ))} */}
+
+
+      <TaskContainer />
     </div>
   );
 }
