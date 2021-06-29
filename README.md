@@ -2,10 +2,6 @@
 
   <h3 align="center">Todo App</h3>
 
-  <p align="center">
-    <br />
-    <a href="https://todo-app-cstudy.herokuapp.com/"><strong>View Demo</strong></a>
-  </p>
 
 ### Built With
 
